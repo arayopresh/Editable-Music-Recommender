@@ -210,3 +210,42 @@ export function dismissSuggestion(state, sid) {
   note(state, 'user', `You dismissed the AI suggestion "${s.text}".`);
   return true;
 }
+
+
+//recommendations showing the line theyve come from -- aka the ake daata p
+//and updating the dropped andkept edits
+
+
+export function checkRecommendations(state, tracks, limit = 5) {
+  const kept = [];
+
+  let dropped = 0; //aafter edits
+
+  const seen = new Set();
+
+  for (const t of Array.isArray(tracks) ? tracks : []) {
+
+    const title = String((t && t.title) || '').trim();
+    const artist = String((t && t.artist) || '').trim();
+    
+    const key = norm(`${title} ${artist}`);
+
+    if (!title || !artist || !findLine(state, t.lineId) || seen.has(key)) {
+      dropped += 1; 
+      continue;
+    }
+
+    seen.add(key);
+
+    if (kept.length < limit) {
+      kept.push({ title, artist, lineId: t.lineId, reason: String(t.reason || '').trim(), catalogue: t.catalogue || null });
+    }
+
+
+  }
+  if (dropped) {
+    note(state, 'blocked', `Dropped ${dropped} recommendation${dropped > 1 ? 's' : ''} that did not name a line in your profile.`);
+  }
+
+  return { kept, dropped };
+}
