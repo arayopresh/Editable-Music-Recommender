@@ -109,4 +109,104 @@ export function addLine(state, text) {
 
 
 
-//ading a protection layer that the =model has to obey
+//ading a protection layer that the =model has to obey bc were running a strict program here :p
+export function applyModelProposals(state, proposals) {
+
+  const result = { suggested: 0, blocked: 0, skipped: 0 };
+
+  for (const p of Array.isArray(proposals) ? proposals : []) {
+    const text = String((p && p.text) || '').trim();
+    if (!text) 
+    continue;
+
+    const key = norm(text);
+    const target = p.replacesId ? findLine(state, p.replacesId) : null;
+
+    if (target && target.author === 'User') {
+      result.blocked += 1;
+
+      note(state, 'blocked', `Blocked. The AI tried to rewrite your line "${target.text}". Your edits stay the same.`);
+      continue;
+    }
+    if (state.removedTexts.includes(key)) {
+      result.skipped += 1;
+      note(state, 'blocked', `Skipped. The AI suggested "${text}" again, which you removed earlier.`);
+      continue;
+
+    }
+
+//dupes
+    const duplicate =
+      state.lines.some((l) => norm(l.text) === key) ||
+      state.suggestions.some((s) => norm(s.text) === key);
+
+    if (duplicate) 
+        continue;
+
+
+    state.suggestions.push({
+      id: newId('S'),
+      kind: target ? 'revise' : 'add',
+      targetId: target ? target.id : null,
+      text,
+    });
+
+
+    result.suggested += 1;
+  }
+
+
+  if (result.suggested) {
+
+    note(state, 'ai', `The AI suggested ${result.suggested} change${result.suggested > 1 ? 's' : ''}. Nothing changes until you accept.`);
+  } else if (!result.blocked && !result.skipped) {
+    note(state, 'ai', 'The AI had nothing new to suggest.');
+  }
+
+  return result;
+
+}
+
+//knoing when to make suggestions
+
+export function acceptSuggestion(state, sid) {
+
+
+  const s = state.suggestions.find((x) => x.id === sid);
+
+  if (!s) 
+    return false;
+  state.suggestions = state.suggestions.filter((x) => x.id !== sid);
+
+  if (s.kind === 'revise') {
+    const target = findLine(state, s.targetId);
+    // double check bcuser  may have edited the line
+
+    if (!target || target.author === 'user') 
+    return false;
+    target.text = s.text;
+
+  } else {
+    state.lines.push({ id: newId('L'), text: s.text, author: 'ai', original: null });
+  }
+
+  note(state, 'user', `You accepted the AI suggestion "${s.text}".`);
+  return true;
+
+
+}
+
+//refusing suugestion
+
+export function dismissSuggestion(state, sid) {
+
+  const s = state.suggestions.find((x) => x.id === sid);
+  if (!s) 
+    return false;
+  state.suggestions = state.suggestions.filter((x) => x.id !== sid);
+  state.removedTexts.push(norm(s.text));
+
+
+  note(state, 'user', `You dismissed the AI suggestion "${s.text}".`);
+  return true;
+}
