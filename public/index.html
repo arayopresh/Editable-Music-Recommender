@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">1212
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taste profile</title>
+
+  <link rel="icon" href="data:,">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+
+      <h1>Taste profile</h1>
+
+      <p class="sub">See what an AI believes about your music taste, and correct it.</p>
+
+    </div>
+
+    <div class="controls">
+
+      <div class="seg" role="group" aria-label="Mode">
+        <button type="button" id="modeReplay" aria-pressed="true">Replay (simulated)</button>
+        <button type="button" id="modeLive" aria-pressed="false">Live LLM</button>
+      </div>
+
+      <button type="button" id="reset" class="ghost">Start again</button>
+
+    </div>
+  </header>
+ 
+
+
+  <section class="boundary" aria-labelledby="hBoundary">
+  <h2 id="hBoundary" class="visually-hidden">What the AI can and cannot do</h2>
+
+  <div>
+    <h3>The AI can</h3>
+    <ul>
+      <li>Read your listening history and write your taste profile</li>
+      <li>Recommend songs and show which line each came from</li>
+    </ul>
+  </div>
+
+  <div>
+    <h3>The AI cannot</h3>
+    <ul>
+      <li>Change or remove a line you wrote or edited</li>
+      <li>Add anything to your profile without your permission</li>
+    
+    </ul>
+  </div>
+
+  <p class="boundary-note">
+    It can get your taste wrong so if a line is wrong, edit it and the tracks change. Every song is checked on Deezer in case the AI hallucinaates.
+  </p>
+</section>
+
+  <div id="error" class="error" role="alert" hidden></div>
+
+  <main class="grid">
+    <section class="panel" aria-labelledby="hHistory">
+      <div class="panel-head">
+        <h2 id="hHistory">Listening history</h2>
+        <span class="chip sim">Simulated sample data</span>
+      </div>
+
+      <div id="history"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="hProfile">
+      <div class="panel-head">
+
+        <h2 id="hProfile">What the AI believes about your taste</h2>
+      </div>
+
+      <div id="profile"></div>
+
+
+    </section>
+
+    <section class="panel" aria-labelledby="hRecs">
+
+      <div class="panel-head">
+        <h2 id="hRecs">Recommendations</h2>
+      </div>
+
+      <div id="recs"></div>
+
+    </section>
+  </main>
+
+  <section class="panel log" aria-labelledby="hLog">
+    <div class="panel-head"><h2 id="hLog">Interaction History</h2></div>
+    <ol id="log" aria-live="polite"></ol>
+  </section>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
