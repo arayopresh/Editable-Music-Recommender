@@ -12,7 +12,7 @@ export const norm = (text) =>
 
 
 export function createState() {
-    return {lines: [], suggestions: [], removedTexxts: [], log: []};
+    return {lines: [], suggestions: [], removedTexts: [], log: []};
 
 }
 
