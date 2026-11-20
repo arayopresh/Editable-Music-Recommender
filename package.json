@@ -2,6 +2,7 @@
   "name": "editable-music-recommender",
   "version": "1.0.0",
   "description": "IIS prototype",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
