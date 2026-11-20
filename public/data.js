@@ -136,7 +136,7 @@ export const CATALOGUE = [
 
 //script for what the responder should say back ... also fake 
 //right so were gonna misinterepret the relaxing white noise  music as smth you love and want mpre of
-export const Script = {
+export const SCRIPT = {
     profile: [
         'Listens to mostly alternative and R&B music',
         'Likes listening to Afrobeats and Afropop',
