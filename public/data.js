@@ -2,7 +2,7 @@
 //array of fake data ;p
 
 
-export const History = [
+export const HISTORY = [
     {title: 'West Coast' , artist: 'Lana Del Rey', playlist: 'Liked songs', plays: 7, tag: 'alternative'},
     {title: 'Cruel World', artist: 'Lana Del Rey', playlist: 'somewhere else', plays: 8, tag: 'alternative'},
     {title: 'National Anthem', artist: 'Lana Del Rey', playlist: 'on repeat', plays: 11, tag: 'alternative'},
@@ -50,6 +50,88 @@ export const History = [
     {title: 'Passionfruit', artist: 'Drake', playlist: 'on repeat', plays: 9, tag: 'r&b'},
     {title: 'Girls Need Love', artist: 'Summer Walker', playlist: 'in my feelings', plays: 6, tag: 'r&b'}
     ];
+
+
+
+export const CATALOGUE = [
+  { title: 'Gods & Monsters', artist: 'Lana Del Rey', tag: 'alternative' },
+  { title: 'Cruel World', artist: 'Lana Del Rey', tag: 'alternative' },
+  { title: 'Music to Watch Boys To', artist: 'Lana Del Rey', tag: 'alternative' },
+  { title: 'Honeymoon', artist: 'Lana Del Rey', tag: 'alternative' },
+  { title: 'Brooklyn Baby', artist: 'Lana Del Rey', tag: 'alternative' },
+  { title: 'Art Deco', artist: 'Lana Del Rey', tag: 'alternative' },
+  { title: 'The Hills', artist: 'The Weeknd', tag: 'alternative' },
+  { title: 'Kiss Land', artist: 'The Weeknd', tag: 'alternative' },
+  { title: 'I Was Never There', artist: 'The Weeknd ft. Gesaffelstein', tag: 'alternative' },
+  { title: 'After Hours', artist: 'The Weeknd', tag: 'alternative' },
+  { title: 'Less Than Zero', artist: 'The Weeknd', tag: 'alternative' },
+  { title: 'Apocalypse', artist: 'Cigarettes After Sex', tag: 'alternative' },
+  { title: 'K.', artist: 'Cigarettes After Sex', tag: 'alternative' },
+  { title: 'Sweater Weather', artist: 'The Neighbourhood', tag: 'alternative' },
+  { title: 'Daddy Issues', artist: 'The Neighbourhood', tag: 'alternative' },
+  { title: 'The Less I Know the Better', artist: 'Tame Impala', tag: 'indie' },
+  { title: 'Bags', artist: 'Clairo', tag: 'indie' },
+  { title: 'The Knowing', artist: 'The Weeknd', tag: 'rnb' },
+  { title: 'Montreal', artist: 'The Weeknd', tag: 'rnb' },
+  { title: 'Wicked Games', artist: 'The Weeknd', tag: 'rnb' },
+  { title: 'Call Out My Name', artist: 'The Weeknd', tag: 'rnb' },
+  { title: 'Often', artist: 'The Weeknd', tag: 'rnb' },
+  { title: 'Rehab (Winter in Paris)', artist: 'Brent Faiyaz', tag: 'rnb' },
+  { title: 'Clouded', artist: 'Brent Faiyaz', tag: 'rnb' },
+  { title: 'Japanese Denim', artist: 'Daniel Caesar', tag: 'rnb' },
+  { title: 'Get You', artist: 'Daniel Caesar ft. Kali Uchis', tag: 'rnb' },
+  { title: 'N Side', artist: 'Steve Lacy', tag: 'rnb' },
+  { title: 'Focus', artist: 'H.E.R.', tag: 'rnb' },
+  { title: 'Exchange', artist: 'Bryson Tiller', tag: 'rnb' },
+  { title: 'Love Galore', artist: 'SZA ft. Travis Scott', tag: 'rnb' },
+  { title: 'Crew', artist: 'GoldLink ft. Brent Faiyaz and Shy Glizzy', tag: 'rnb' },
+  { title: 'Persian Rugs', artist: 'PARTYNEXTDOOR', tag: 'rnb' },
+  { title: 'Come and See Me', artist: 'PARTYNEXTDOOR ft. Drake', tag: 'rnb' },
+  { title: 'Pink + White', artist: 'Frank Ocean', tag: 'rnb' },
+  { title: 'Sweet Life', artist: 'Frank Ocean', tag: 'rnb' },
+  { title: 'Good Days', artist: 'SZA', tag: 'rnb' },
+  { title: 'Session 32', artist: 'Summer Walker', tag: 'rnb' },
+  { title: 'Nights Like This', artist: 'Kehlani ft. Ty Dolla $ign', tag: 'rnb' },
+  { title: 'PRIDE.', artist: 'Kendrick Lamar', tag: 'hiphop' },
+  { title: '90210', artist: 'Travis Scott ft. Kacy Hill', tag: 'hiphop' },
+  { title: 'Codeine Crazy', artist: 'Future', tag: 'hiphop' },
+  { title: 'Overdue', artist: 'Metro Boomin ft. Travis Scott', tag: 'hiphop' },
+  { title: 'Cinderella', artist: 'Future and Metro Boomin ft. Travis Scott', tag: 'hiphop' },
+  { title: 'Superhero', artist: 'Metro Boomin, Future and Chris Brown', tag: 'hiphop' },
+  { title: 'West Savannah', artist: 'Isaiah Rashad ft. SZA', tag: 'hiphop' },
+  { title: 'Solo', artist: 'Future', tag: 'hiphop' },
+  { title: 'WusYaName', artist: 'Tyler, The Creator ft. YoungBoy Never Broke Again and Ty Dolla $ign', tag: 'hiphop' },
+  { title: 'West Ten', artist: 'AJ Tracey and Mabel', tag: 'ukrap' },
+  { title: 'Sprinter', artist: 'Dave and Central Cee', tag: 'ukrap' },
+  { title: 'Doja', artist: 'Central Cee', tag: 'ukrap' },
+  { title: 'Funky Friday', artist: 'Dave and Fredo', tag: 'ukrap' },
+  { title: 'Location', artist: 'Dave ft. Burna Boy', tag: 'ukrap' },
+  { title: 'Rock Your Body', artist: 'Justin Timberlake', tag: '2000srnb' },
+  { title: 'Get It Shawty', artist: 'Lloyd', tag: '2000srnb' },
+  { title: 'Promiscuous', artist: 'Nelly Furtado ft. Timbaland', tag: '2000srnb' },
+  { title: 'Like a Boy', artist: 'Ciara', tag: '2000srnb' },
+  { title: 'So Sick', artist: 'Ne-Yo', tag: '2000srnb' },
+  { title: 'Essence', artist: 'Wizkid ft. Tems', tag: 'afrobeats' },
+  { title: 'Ye', artist: 'Burna Boy', tag: 'afrobeats' },
+  { title: 'Soweto', artist: 'Victony and Tempoe', tag: 'afrobeats' },
+  { title: 'Charm', artist: 'Rema', tag: 'afrobeats' },
+  { title: 'Rush', artist: 'Ayra Starr', tag: 'afrobeats' },
+  { title: 'Mnike', artist: 'Tyler ICU, Tumelo.za and DJ Maphorisa', tag: 'amapiano' },
+  { title: 'Water', artist: 'Tyla', tag: 'amapiano' },
+  { title: 'Sponono', artist: 'Kabza De Small and Wizkid', tag: 'amapiano' },
+  { title: 'Aruarian Dance', artist: 'Nujabes', tag: 'jazz' },
+  { title: 'Tadow', artist: 'Masego and FKJ', tag: 'jazz' },
+  { title: 'Luv(sic) Part 3', artist: 'Nujabes ft. Shing02', tag: 'jazz' },
+  { title: 'On & On', artist: 'Erykah Badu', tag: 'soul' },
+  { title: 'The Light', artist: 'Common', tag: 'soul' },
+  { title: 'Intro', artist: 'The xx', tag: 'electronic' },
+  { title: 'A Walk', artist: 'Tycho', tag: 'ambient' },
+  { title: 'Awake', artist: 'Tycho', tag: 'ambient' },
+  { title: 'Near Light', artist: 'Ólafur Arnalds', tag: 'classical' },
+  { title: 'Experience', artist: 'Ludovico Einaudi', tag: 'classical' },
+  { title: 'On the Nature of Daylight', artist: 'Max Richter', tag: 'classical' }
+];
+
 
 
 //script for what the responder should say back ... also fake 
