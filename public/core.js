@@ -30,11 +30,11 @@ export function setAIProfile(state, texts) {
     state.lines = texts
     .map((x) => String(x || '').trim())
     .filter(Boolean)
-    .map((texts) => ({id:newId('L'), text, author: 'AI', original: null}));
+    .map((text) => ({id:newId('L'), text, author: 'ai', original: null}));
 
     state.suggestions =[];
     state.removedTexts =[];
-    note(state, 'AI', `The AI wrote ${state.lines.length} lines from the listening history`)
+    note(state, 'ai', `The AI wrote ${state.lines.length} lines from the listening history`)
     return state.lines;
 }
 

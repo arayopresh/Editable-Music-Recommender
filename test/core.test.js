@@ -8,7 +8,7 @@ import { HISTORY, SCRIPT } from '../public/data.js';
 const fresh = () => {
   const s = core.createState();
 
-  core.setAiProfile(s, Script.profile);
+  core.setAIProfile(s, Script.profile);
   return s;
 };
 

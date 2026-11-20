@@ -78,6 +78,7 @@ async function run(kind, job) {
   } 
   
   catch (err) {
+    console.error(err); //kill me
     ui.error = `${err.message}. Nothing in your profile was changed.`;
   }
   ui.busy = null;
@@ -117,7 +118,7 @@ async function refreshRecs() {
 
 const writeProfile = () =>
   run('profile', async () => {
-    core.setAiProfile(state, await ui.responder.writeProfile(HISTORY));
+    core.setAIProfile(state, await ui.responder.writeProfile(HISTORY));
     ui.started = true;
 
     await refreshRecs();
