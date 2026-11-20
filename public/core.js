@@ -27,6 +27,7 @@ const findLine = (state, id) => state.lines.find((x) => x.id === id);
 // models generates the 1st profile
 
 export function setAIProfile(state, texts) {
+  console.log('profile input', texts);
     state.lines = texts
     .map((x) => String(x || '').trim())
     .filter(Boolean)
@@ -41,12 +42,12 @@ export function setAIProfile(state, texts) {
 //user controlsss
 export function editLine(state, id, text){
     const line = findLine(state, id);
-    const next = String(text || '').trim
+    const next = String(text || '').trim()
     
     if(!line || !next || next ===line.text) 
         return false;
 
-    if(line.author ==='AI')
+    if(line.author ==='ai')
         line.original = line.text; // #imbetterthantheAI ;p
         line.text = next;
         line.author ='User'
@@ -54,7 +55,7 @@ export function editLine(state, id, text){
 //showing the changes the user made 
     state.suggestions = state.suggestions.filter((s)=> s.targetId !== id);
     note(state, 'user', `You edited a line and now it reads " ${next}".`);
-    return True
+    return true
 
 
 }
@@ -66,7 +67,7 @@ export function restoreLine(state, id) {
   if (!line || !line.original) 
     return false;
   line.text = line.original;
-  line.author = 'AI';
+  line.author = 'ai';
   line.original = null;
 
 
@@ -100,7 +101,7 @@ export function addLine(state, text) {
   if (!next) 
     return null;
 
-  const line = { id: newId('L'), text: next, author: 'User', original: null };
+  const line = { id: newId('L'), text: next, author: 'user', original: null };
   state.lines.push(line);
 
   note(state, 'User', `You added the line "${next}".`);
@@ -122,7 +123,7 @@ export function applyModelProposals(state, proposals) {
     const key = norm(text);
     const target = p.replacesId ? findLine(state, p.replacesId) : null;
 
-    if (target && target.author === 'User') {
+    if (target && target.author === 'user') {
       result.blocked += 1;
 
       note(state, 'blocked', `Blocked. The AI tried to rewrite your line "${target.text}". Your edits stay the same.`);
