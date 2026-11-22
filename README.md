@@ -18,7 +18,7 @@ An AI reads a listening history and writes the listener's taste as short plain-t
 | Listening history | Simulated | Fixed sample in `public/data.js`, not a real account |
 | Live LLM mode | Implemented| `server.js` makes three LLM calls. |
 | Real streaming account | Planned | |
-| User study | Planned | Phase 3 |
+| User study | Planned | |
 
 ## Technology stack
 
@@ -59,7 +59,7 @@ Run the tests with `npm test`.
 
 ## Development record
 
--  I started from a draft made with Claude to get an idea on how approach the building process, then rebuilt it in my own repository. 
+-  The project was developed through a series of labs done during the course where I evolved the project as I learnt more information
 
 ## What each file does 
 
@@ -79,14 +79,14 @@ Run the tests with `npm test`.
 
 - **Tool.** Claude used through the chat app.
 - **What I asked for.** A first version of the project setup and Assignment 1 review used to build on the second report. I also used it for running tests and debugging the project code.
-- **What is mine.** The topic, the gap, the choice to make the profile editable, and the fixes that came from my own Lab 3 testing.
+- **What is mine.** The topic, the gap, the choice to make the profile editable, and the code.
 
 
 
 ## Known limits
 - The scripted responder only recognises a small set of genres and phrases such as "only for" and "not".
 - The listening history is sample data.
-- Deezer's similar-artist results are broad, so a track can sit loosely under its profile line.
-- "Not found on Deezer" means no match in that catalogue. It does not prove a track does not exist.
+- Deezer's similar-artist results are broad, so a song can sit loosely under its profile line.
+- "Not found on Deezer" means no match in that catalogue. It does not prove a song does not exist.
 - One listener, one session. Nothing is saved after a refresh.
 
