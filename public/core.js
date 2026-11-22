@@ -50,7 +50,7 @@ export function editLine(state, id, text){
     if(line.author ==='ai')
         line.original = line.text; // #imbetterthantheAI ;p
         line.text = next;
-        line.author ='User'
+        line.author ='user'
 
 //showing the changes the user made 
     state.suggestions = state.suggestions.filter((s)=> s.targetId !== id);
