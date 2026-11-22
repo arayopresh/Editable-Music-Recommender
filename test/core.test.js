@@ -8,7 +8,7 @@ import { HISTORY, SCRIPT } from '../public/data.js';
 const fresh = () => {
   const s = core.createState();
 
-  core.setAIProfile(s, Script.profile);
+  core.setAIProfile(s, SCRIPT.profile);
   return s;
 };
 
@@ -32,10 +32,10 @@ test('editing a line marks it as the user edit and keeps the AI wording', () => 
 
   core.editLine(s, line.id, 'Ambient only for sleep');
   assert.equal(line.author, 'user');
-  assert.equal(line.original, 'Prefers slow ambient music');
+  assert.equal(line.original, SCRIPT.ambientOriginal);
   core.restoreLine(s, line.id);
   assert.equal(line.author, 'ai');
-  assert.equal(line.text, 'Prefers slow ambient music');
+  assert.equal(line.text, SCRIPT.ambientOriginal);
 
 
 });
@@ -115,7 +115,7 @@ test('a removed line is not suggested again', () => {
 
   const s = fresh();
   core.deleteLine(s, ambientLine(s).id);
-  const r = core.applyModelProposals(s, [{ text: 'Prefers slow ambient music', replacesId: null }]);
+  const r = core.applyModelProposals(s, [{ text: SCRIPT.ambientOriginal, replacesId: null }]);
   assert.equal(r.skipped, 1);
 
   assert.equal(s.suggestions.length, 0);
@@ -143,7 +143,7 @@ test('recommendations must name an existing line', () => {
 
 test('replay recommender gives five tracks, one per line, none already heard', () => {
   const s = fresh();
-  const tracks = pickTracks(s.lines, History);
+  const tracks = pickTracks(s.lines, HISTORY);
 
   assert.equal(tracks.length, 5);
   assert.equal(new Set(tracks.map((t) => t.lineId)).size, 5);
@@ -182,7 +182,7 @@ test('scripted proposal after an edit ends in one suggestion and one block', asy
 test('real tracks from a pool are preferred and keep their catalogue data', () => {
 
   const s = fresh();
-  const pools = { ukrap: [{ title: 'Real Track', artist: 'Real Artist', seedArtist: 'Dave', catalogue: { status: 'found', link: 'x' } }] };
+  const pools = { alternative: [{ title: 'Real Track', artist: 'Real Artist', seedArtist: 'Dave', catalogue: { status: 'found', link: 'x' } }] };
   const tracks = pickTracks(s.lines, HISTORY, pools);
   const first = tracks.find((t) => t.title === 'Real Track');
 
@@ -198,6 +198,6 @@ test('real tracks from a pool are preferred and keep their catalogue data', () =
 
 test('a pool track already in the history is not recommended', () => {
   const s = fresh();
-  const pools = { ukrap: [{ title: 'Location', artist: 'Dave', seedArtist: 'Dave', catalogue: { status: 'found' } }] };
-  assert.ok(!pickTracks(s.lines, HISTORY, pools).some((t) => t.title === 'Location'));
+  const pools = { alternative: [{ title: 'West Coast', artist: 'Lana Del Rey', seedArtist: 'Lana Del Rey', catalogue: { status: 'found' } }] };
+assert.ok(!pickTracks(s.lines, HISTORY, pools).some((t) => t.title === 'West Coast'));
 });
