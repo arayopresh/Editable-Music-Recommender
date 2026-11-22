@@ -1,4 +1,5 @@
 # Editable Music Recommender
+#Word Count - 856
 
 Editable taste profiles for AI music recommendation. Individual project for Intelligent Interactive Systems
 
@@ -78,8 +79,8 @@ Run the tests with `npm test`.
 ## AI assistance
 
 - **Tool.** Claude used through the chat app.
-- **What I asked for.** A first version of the project setup and Assignment 1 review used to build on the second report. I also used it for running tests and debugging the project code.
-- **What is mine.** The topic, the gap, the choice to make the profile editable, and the code.
+- **What I asked for.** A first version of the project setup and Assignment 1 review used to build on the second report. I also used it for styling the page, running tests and debugging the project code.
+
 
 
 
