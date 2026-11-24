@@ -1,5 +1,5 @@
 # Editable Music Recommender
-#Word Count - 856
+#Word Count - 1162
 
 Editable taste profiles for AI music recommendation. Individual project for Intelligent Interactive Systems
 
